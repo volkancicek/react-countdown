@@ -1,0 +1,36 @@
+# Generated files
+documentation
+dist
+out-tsc
+tmp
+
+# Dependencies
+node_modules
+
+# IDEs + Editors
+*.launch
+*.sublime*
+.c9
+.classpath
+.idea
+.project
+.settings
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Misc
+*.log
+.sass-cache
+connect.lock
+coverage
+typings
+
+# System files
+*.nosync
+.DS_Store
+Thumbs.db
