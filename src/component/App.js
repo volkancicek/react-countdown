@@ -15,13 +15,12 @@ export default class App extends React.Component {
     this.state = {
       targetDate: new Date(),
       text: "",
+      datePickerDisabled: true
     }
   }
 
   componentDidMount() {
-    let text = "Geliyor gelmekte olan";
-    let date = "2022-01-28T16:00:00.000Z";
-    this.readData(date, text);
+    this.readData();
   }
 
   render() {
@@ -35,6 +34,7 @@ export default class App extends React.Component {
             dateFormat="PP - HH:mm"
             selected={this.state.targetDate}
             onChange={date => this.onChange(date)}
+            disabled = {this.state.datePickerDisabled}
           />
         </div>
         <div className="center">
@@ -47,16 +47,19 @@ export default class App extends React.Component {
     );
   }
 
-  readData(date, text) {   
-    if (!date) {
+  readData() {
+    let text = "Geliyor gelmekte olan";
+    const urlParams = new URLSearchParams(window.location.search);
+    let date = urlParams.get('date') ? urlParams.get('date') : "2022-01-28T16:00:00.000Z";
+    let friday = urlParams.get('f') === "1" ? true : false;
+    if (friday) {
       date = getNextDayOfWeek(new Date(), WeekDays.FRI, 17);
-      if (!text) {
-        text = "When's it again Friday?";
-      }
+      text = "When's it again Friday?";
     }
     this.setState({
       targetDate: new Date(date),
       text: text,
+      datePickerDisabled: friday
     });
   }
 
