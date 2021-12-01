@@ -19,7 +19,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.readData();
+    let text = "Geliyor gelmekte olan";
+    let date = "2022-01-28T16:00:00.000Z";
+    this.readData(date, text);
   }
 
   render() {
@@ -38,7 +40,6 @@ export default class App extends React.Component {
         <div className="center">
           <div className="content">
             <Thought text={this.state.text} />
-            <img src={process.env.PUBLIC_URL + "/me.png"} alt="Flowkap" />
             <Counter targetDate={this.state.targetDate} />
           </div>
         </div>
@@ -46,10 +47,7 @@ export default class App extends React.Component {
     );
   }
 
-  readData() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let date = urlParams.get('date');
-    let text = urlParams.get('text');
+  readData(date, text) {   
     if (!date) {
       date = getNextDayOfWeek(new Date(), WeekDays.FRI, 17);
       if (!text) {
