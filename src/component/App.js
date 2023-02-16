@@ -50,7 +50,7 @@ export default class App extends React.Component {
   readData() {
     let text = "Geliyor gelmekte olan";
     const urlParams = new URLSearchParams(window.location.search);
-    let date = urlParams.get('date') ? urlParams.get('date') : "2023-05-28T18:00:00.000Z";
+    let date = urlParams.get('date') ? urlParams.get('date') : "2023-08-30T15:00:00.000Z";
     let friday = urlParams.get('f') === "1" ? true : false;
     if (friday) {
       date = getNextDayOfWeek(new Date(), WeekDays.FRI, 17);
