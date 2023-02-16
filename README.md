@@ -9,7 +9,7 @@ Try
 
 Countdown 
 
-https://volkancicek.github.io/react-countdown/?date=2023-02-19T16:00:00.000Z
+https://volkancicek.github.io/react-countdown/?date=2023-12-31T20:00:00.000Z
 
 When is it next Friday?
 
